@@ -14,6 +14,9 @@
     <modules>
         <module>service-edu</module>
         <module>service-vod</module>
+        <module>service-oss</module>
+        <module>service-cms</module>
+        <module>service-acl</module>
     </modules>
 
     <dependencies>
@@ -24,27 +27,27 @@
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
-        <!--<dependency>
+        <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
-        </dependency>-->
+        </dependency>
 
         <!--hystrix依赖，主要是用  @HystrixCommand -->
-        <!--<dependency>
+        <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
-        </dependency>-->
+        </dependency>
 
         <!--服务注册-->
-        <!-- <dependency>
+         <dependency>
              <groupId>org.springframework.cloud</groupId>
              <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-         </dependency>-->
+         </dependency>
         <!--服务调用-->
-        <!-- <dependency>
+         <dependency>
              <groupId>org.springframework.cloud</groupId>
              <artifactId>spring-cloud-starter-openfeign</artifactId>
-         </dependency>-->
+         </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -123,5 +126,15 @@
             <version>4.12</version>
         </dependency>
     </dependencies>
-
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+                <filtering>false</filtering>
+            </resource>
+        </resources>
+    </build>
 </project>
