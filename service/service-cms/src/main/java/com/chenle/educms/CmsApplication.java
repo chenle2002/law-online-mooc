@@ -1,17 +1,17 @@
-package com.chenle.oss;
+package com.chenle.educms;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.ComponentScan;
 
-@SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
+@SpringBootApplication
+@ComponentScan({"com.chenle"}) //指定扫描位置
 @EnableDiscoveryClient
-@ComponentScan(basePackages = {"com.chenle"})
-public class OssApplication {
-
+@MapperScan("com.chenle.educms.mapper")
+public class CmsApplication {
     public static void main(String[] args) {
-        SpringApplication.run(OssApplication.class, args);
+        SpringApplication.run(CmsApplication.class, args);
     }
 }
