@@ -16,8 +16,8 @@ public class TestVod {
 
     public static void main(String[] args) throws Exception {
 //        getPlayUrl();
-//        getPlayAuth();
-        upload();
+        getPlayAuth();
+//        upload();
     }
 
     public static void upload(){
@@ -53,7 +53,7 @@ public class TestVod {
         GetVideoPlayAuthRequest request = new GetVideoPlayAuthRequest();
         GetVideoPlayAuthResponse response = new GetVideoPlayAuthResponse();
 
-        request.setVideoId("53450080f3b371eda1636723b78e0102");
+        request.setVideoId("7e49f250f3bc71ed808d0764a3fc0102");
 
         response = client.getAcsResponse(request);
         System.out.println("playAuth:"+response.getPlayAuth());
