@@ -2,6 +2,7 @@ package com.chenle.eduservice.mapper;
 
 import com.chenle.eduservice.entity.EduCourse;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.chenle.eduservice.entity.frontvo.CourseWebVo;
 import com.chenle.eduservice.entity.vo.CoursePublishVo;
 
 /**
@@ -15,4 +16,6 @@ import com.chenle.eduservice.entity.vo.CoursePublishVo;
 public interface EduCourseMapper extends BaseMapper<EduCourse> {
 
     CoursePublishVo getPublishCourseInfo(String id);
+
+    CourseWebVo getBaseCourseInfo(String courseId);
 }
