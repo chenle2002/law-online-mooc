@@ -44,6 +44,11 @@
         <canal.client.version>1.1.0</canal.client.version>
         <docker.image.prefix>zx</docker.image.prefix>
         <cloud-alibaba.version>0.2.2.RELEASE</cloud-alibaba.version>
+        <dysmsapi.version>2.0.23</dysmsapi.version>
+        <tea-openapi.version>0.2.8</tea-openapi.version>
+        <tea-console.version>0.0.1</tea-console.version>
+        <tea-util.version>0.2.16</tea-util.version>
+        <tea.version>1.1.14</tea.version>
     </properties>
 
     <dependencyManagement>
@@ -199,6 +204,31 @@
                 <groupId>com.alibaba.otter</groupId>
                 <artifactId>canal.client</artifactId>
                 <version>${canal.client.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.aliyun</groupId>
+                <artifactId>dysmsapi20170525</artifactId>
+                <version>${dysmsapi.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.aliyun</groupId>
+                <artifactId>tea-openapi</artifactId>
+                <version>${tea-openapi.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.aliyun</groupId>
+                <artifactId>tea-console</artifactId>
+                <version>${tea-console.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.aliyun</groupId>
+                <artifactId>tea-util</artifactId>
+                <version>${tea-util.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.aliyun</groupId>
+                <artifactId>tea</artifactId>
+                <version>${tea.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
