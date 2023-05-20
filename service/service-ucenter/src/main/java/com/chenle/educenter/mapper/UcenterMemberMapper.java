@@ -14,4 +14,5 @@ import com.chenle.educenter.entity.UcenterMember;
  */
 public interface UcenterMemberMapper extends BaseMapper<UcenterMember> {
 
+    Integer countRegisterDay(String day);
 }
