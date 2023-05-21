@@ -19,7 +19,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.HashMap;
 
-@CrossOrigin
+//@CrossOrigin
 @Controller  //只是请求地址，不需要返回数据
 @RequestMapping("/api/ucenter/wx")
 public class WxApiController {
