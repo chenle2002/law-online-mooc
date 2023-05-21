@@ -22,7 +22,7 @@ public class OssController {
     @PostMapping
     public R uploadOssFile(MultipartFile file) {
         //获取上传文件  MultipartFile
-        //返回上传到oss的路径
+        //返回上传到oss的url路径
         String url = ossService.uploadFileAvatar(file);
         return R.ok().data("url",url);
     }
