@@ -33,7 +33,7 @@ public class BulletChatSaveListener {
         log.info("收到弹幕新增消息,弹幕内容:{}", bulletChat.getContent());
         bulletChatService.saveBullet(bulletChat);
 
-        //手动应答
+        //进行手动应答
         try {
             channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
         } catch (IOException e) {
