@@ -5,12 +5,16 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 
 import com.chenle.commonutils.JwtUtils;
+import com.chenle.commonutils.ordervo.MsmVo;
+import com.chenle.educenter.config.RabbitmqConfig;
 import com.chenle.educenter.entity.UcenterMember;
 import com.chenle.educenter.entity.vo.RegisterVo;
 import com.chenle.educenter.mapper.UcenterMemberMapper;
 import com.chenle.educenter.service.UcenterMemberService;
 import com.chenle.educenter.utils.MD5;
 import com.chenle.servicebase.exceptionhandler.GuliException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
@@ -27,6 +31,8 @@ import org.springframework.util.StringUtils;
 @Service
 public class UcenterMemberServiceImpl extends ServiceImpl<UcenterMemberMapper, UcenterMember> implements UcenterMemberService {
 
+    @Autowired
+    RabbitTemplate rabbitTemplate;
     @Autowired
     private RedisTemplate<String,String> redisTemplate;
     //登录的方法
@@ -120,5 +126,14 @@ public class UcenterMemberServiceImpl extends ServiceImpl<UcenterMemberMapper, U
     @Override
     public Integer countRegisterDay(String day) {
         return baseMapper.countRegisterDay(day);
+    }
+
+    @Override
+    public boolean send(String code, String phone) {
+        MsmVo msmVo=new MsmVo();
+        msmVo.setCode(code);
+        msmVo.setPhone(phone);
+        rabbitTemplate.convertAndSend(RabbitmqConfig.EXCHANGE_TOPICS_INFORM, "inform.sms", msmVo);
+        return true;
     }
 }
